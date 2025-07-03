@@ -1,0 +1,240 @@
+/* Global Styles */
+:root {
+  --bg-color: #f4f6f8;
+  --text-color: #333;
+  --header-bg: linear-gradient(to right, #6a11cb, #2575fc);
+  --footer-bg: #343a40;
+  --button-bg: #6a11cb;
+  --button-hover-bg: #2575fc;
+  --accent-color: #2575fc;
+  --form-success: #90ee90;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  --bg-color: #1e1e2f;
+  --text-color: #f0f0f0;
+  --header-bg: linear-gradient(to right, #111, #444);
+  --footer-bg: #111;
+  --button-bg: #444;
+  --button-hover-bg: #666;
+  --accent-color: #9ecfff;
+  --form-success: #66ff99;
+}
+
+header {
+  background: var(--header-bg);
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: fadeDown 0.8s ease-in;
+}
+
+@keyframes fadeDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+header h1 {
+  margin-bottom: 15px;
+  font-size: 2.5rem;
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+header nav a {
+  text-decoration: none;
+}
+
+header nav a button,
+.download-resume-link {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+  font-weight: 600;
+  display: inline-block;
+  text-decoration: none;
+}
+
+header nav a button:hover,
+.download-resume-link:hover {
+  background-color: #333;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+main {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+main section {
+  margin-bottom: 50px;
+}
+
+section h1 {
+  border-left: 5px solid var(--accent-color);
+  padding-left: 15px;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+section h2 {
+  color: var(--accent-color);
+  margin-top: 15px;
+  font-size: 1.2rem;
+}
+
+section p,
+section li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+ol,
+ul {
+  padding-left: 20px;
+}
+
+footer {
+  background-color: var(--footer-bg);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+footer h3 {
+  font-style: italic;
+  font-size: 1.4rem;
+}
+
+footer form {
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer label {
+  font-weight: 500;
+}
+
+footer input[type="text"],
+footer input[type="email"],
+footer textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+footer button {
+  background-color: var(--button-bg);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+footer button:hover {
+  background-color: var(--button-hover-bg);
+  transform: scale(1.05);
+}
+
+#form-message {
+  color: var(--form-success);
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#toggle-theme {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--button-bg);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+  z-index: 999;
+}
+
+#toggle-theme:hover {
+  background-color: var(--button-hover-bg);
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+
+  footer form {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header nav a button,
+  .download-resume-link {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  footer form {
+    gap: 8px;
+  }
+}
